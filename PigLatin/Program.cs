@@ -32,21 +32,17 @@ namespace PigLatin
 
         public static void TranslateSentence(string[] sentenceArray)
         {
-            int arrayLength = sentenceArray.Length;
-            Console.WriteLine(arrayLength);
 
-            string[] translatedWords = new string[arrayLength];
-
-            //foreach (string word in sentenceArray)
-            for (int i = 0; i < arrayLength; i++)
+            string[] translatedWords = new string[sentenceArray.Length];
+            
+            for (int i = 0; i < sentenceArray.Length; i++)
             {
                 string word = sentenceArray[i];
                 word = TranslateWord(word);
-                Console.WriteLine(word);
                 translatedWords[i] = word;
             }
-            Console.WriteLine(translatedWords.Length);
-            Console.WriteLine(string.Join(" ", translatedWords)); //
+
+            Console.WriteLine(string.Join(" ", translatedWords));
             PlayAgain();
         }
 
@@ -79,16 +75,8 @@ namespace PigLatin
             
             return translatedWord;
 
-            // Results(translatedWord, word);
         }
 
-        public static void Results(string translatedWord, string word)
-        {
-            Console.WriteLine("The word {0} in piglatin is {1}", word, translatedWord);
-            Thread.Sleep(1500);
-
-            PlayAgain();
-        }
 
         public static void PlayAgain()
         {
