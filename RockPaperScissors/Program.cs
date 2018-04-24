@@ -38,7 +38,7 @@ namespace RockPaperScissors
             Thread.Sleep(1500);
 
             //report score
-            Console.WriteLine("Your score is {0}.  The computer's score is {1}", userScore, compScore);
+            Console.WriteLine("Your score is {0}.  The computer's score is {1}.", userScore, compScore);
             Thread.Sleep(1500);
 
             //Play again
@@ -52,11 +52,12 @@ namespace RockPaperScissors
             if (newGame)
             {
                 Console.WriteLine("Welcome to Rock Paper Scissors!");
+                newGame = false;
                 Thread.Sleep(1500);
             }
             else
             {
-                newGame = false;
+                return;
             }
         }
 

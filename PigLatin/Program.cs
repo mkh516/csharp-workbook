@@ -60,7 +60,7 @@ namespace PigLatin
             string translatedWord;
             int firstVowelIndex;
 
-            firstVowelIndex = word.IndexOfAny(new char[] {'a', 'e', 'i', 'o', 'u'});
+            firstVowelIndex = word.IndexOfAny(new char[] {'a', 'e', 'i', 'o', 'u'}); //the first one that it finds
 
             if (firstVowelIndex == 0 || firstVowelIndex == -1)
             {
