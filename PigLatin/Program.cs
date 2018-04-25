@@ -62,7 +62,7 @@ namespace PigLatin
 
             firstVowelIndex = word.IndexOfAny(new char[] {'a', 'e', 'i', 'o', 'u'}); //the first one that it finds
 
-            if (firstVowelIndex == 0 || firstVowelIndex == -1)
+            if (firstVowelIndex <= 0)
             {
                 translatedWord = word + "yay";
             }
