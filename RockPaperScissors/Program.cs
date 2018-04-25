@@ -151,7 +151,7 @@ namespace RockPaperScissors
                     }
                     else  //and computer gets paper
                     {
-                        Console.WriteLine("Paper beats scissors.");
+                        Console.WriteLine("Scissors beats paper.");
                         return 1; //"scissors beat paper, you win";
                     }
                 }
