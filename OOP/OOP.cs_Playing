@@ -1,0 +1,93 @@
+﻿using System;
+
+namespace OOP
+{
+    class Program
+    {
+        static void Main()
+        {
+            Car car1 = new Car("red");
+            Console.WriteLine(car1.Color);
+
+            Garage garage1 = new Garage(1);
+            Console.WriteLine(garage1.GarageSize);
+
+            Console.WriteLine(car1.rentalCost(100));
+
+            Console.WriteLine(car1.RateProp);
+
+            car1.Coupon = "5PercentOff";
+            Console.WriteLine(car1.Coupon);
+
+            Console.WriteLine(car1.RateProp);
+            Console.WriteLine(car1.rentalCost(100));
+        }
+    }
+
+    class Car 
+    {
+        //field
+        private float rate = 0.3f;
+
+        private string coupon = "";
+        //constructor
+        public Car (string color)
+        {
+            Color = color;
+        }
+        //properties
+        public string Color { get; private set; }  //this has to match the name of the thing you want to return when called, case sensitive
+        
+        public string RateProp 
+        { 
+            get
+            {
+                return $"${rate}.00/mile";
+            }
+        }
+
+        public string Coupon
+        {
+            set
+            {
+                if (CouponValid(value))
+                {
+                    coupon = value;
+                    //return "That's a valid coupon"; can't do this because it's a set and returns VOID
+                    rate = rate - (rate * 0.05f);
+                }
+                
+            }
+            get
+            {
+                return coupon;
+            }
+        }
+
+        //function/method
+        private bool CouponValid(string customerCoupon)
+        {
+            string[] coupons = {"5PercentOff","10PercentOff"};
+            return Array.IndexOf(coupons, customerCoupon) != -1;  //("haystack","needle")<--- these are what you are passing into the IndexOf function
+        }
+        public float rentalCost(float miles)
+        {
+            return miles * rate;
+        }
+    }
+
+    class CarPlay
+    {
+        public string color = "red";
+    }
+
+    class Garage
+    {
+        public Garage (int size)
+        {
+            GarageSize = size;
+        }
+
+        public int GarageSize { get; private set; }
+    }
+}
